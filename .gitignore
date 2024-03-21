@@ -1,0 +1,35 @@
+# Build and log files
+bin/
+obj/
+*.suo
+*.user
+*.bak
+*.vscode/
+*.vs/
+*.sln.docstates
+*.DotSettings
+
+# NuGet dependencies
+packages/
+
+# Generated build files
+[Bb]uild/
+.idea/
+
+# Temporary files
+[Tt]emp/
+[Tt]est[Rr]esult*/
+
+# Log and cache files
+*.log
+*.cache
+
+# Visual Studio Code
+.vscode/
+
+# Analysis and report files
+*.psess
+*.csv
+
+# Configuration files
+*.config
