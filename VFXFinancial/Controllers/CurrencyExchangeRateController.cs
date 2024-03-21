@@ -3,6 +3,7 @@ using Core.Features.CurrencyExchangeRate.Commands;
 using Core.Features.CurrencyExchangeRate.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace VFXFinancial.Controllers;
 
@@ -25,6 +26,8 @@ public sealed class CurrencyExchangeRateController(IMediator _mediator) : Contro
     }
 
     [HttpPut]
+    [SwaggerOperation(description: "Except fields ``fromCurrencyCode`` and ``toCurrencyCode``" +
+                                   "which are mandatory,send just the fields you want to change.")]
     public async Task<IActionResult> UpdateCurrencyExchangeRateController(
         [FromBody] UpdateCurrencyExchangeRate.Command dto)
     {

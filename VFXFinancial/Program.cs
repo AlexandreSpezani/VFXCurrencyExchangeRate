@@ -1,6 +1,7 @@
 using Core;
 using Infra;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Models;
 using VFXFinancial.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen(options =>
 {
+    // Enable endpoints documentation
+    options.EnableAnnotations();
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Currency Exchange Service", Version = "v1" });
+    
     // To allow DTOs with same name
     options.CustomSchemaIds(s => s.FullName?.Replace("+", "."));
 });
